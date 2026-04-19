@@ -1,17 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-
-/**
- * Step 8.5: Capabilities & Animated Stats Section.
- * Features: Staggered card reveal, magnetic count-up stats, and luxury glow interactions.
- */
+import { Users, Truck, Award, TrendingUp, Headphones } from "lucide-react";
 
 const CAPABILITIES_DATA = [
-  { id: 1, title: "Certified & Experienced Team", icon: "🤝", desc: "Our team brings decades of combined expertise in international trade, quality standards, and logistics." },
-  { id: 2, title: "Efficient Work & Logistics", icon: "🚢", desc: "Leveraging established shipping networks to deliver your cargo to any global port with zero delays." },
-  { id: 3, title: "High-Quality Products", icon: "💎", desc: "From Himalayan pink salt to premium rice, every product undergoes rigorous 3rd-party lab testing." },
-  { id: 4, title: "Competitive Pricing", icon: "📈", desc: "Wholesale models designed to offer the best value for international distributors and retail giants." },
-  { id: 5, title: "24/7 Customer Support", icon: "🎧", desc: "Round-the-clock availability for order tracking, technical queries, and operational coordination." }
+  { id: 1, title: "Certified & Experienced Team", icon: Users, desc: "Our team brings decades of combined expertise in international trade, quality standards, and logistics." },
+  { id: 2, title: "Efficient Work & Logistics", icon: Truck, desc: "Leveraging established shipping networks to deliver your cargo to any global port with zero delays." },
+  { id: 3, title: "High-Quality Products", icon: Award, desc: "From Himalayan pink salt to premium rice, every product undergoes rigorous 3rd-party lab testing." },
+  { id: 4, title: "Competitive Pricing", icon: TrendingUp, desc: "Wholesale models designed to offer the best value for international distributors and retail giants." },
+  { id: 5, title: "24/7 Customer Support", icon: Headphones, desc: "Round-the-clock availability for order tracking, technical queries, and operational coordination." }
 ];
 
 
@@ -68,8 +64,8 @@ const Capabilities = () => {
                             <div className="absolute inset-x-0 bottom-0 h-1.5 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
                             
                             <div className="space-y-8 relative z-10 flex flex-col items-center text-center">
-                                <div className="text-5xl bg-slate-50 w-20 h-20 rounded-3xl flex items-center justify-center group-hover:bg-brand-gold group-hover:text-white transition-all transform group-hover:rotate-[15deg]">
-                                    {card.icon}
+                                <div className="bg-slate-50 w-20 h-20 rounded-3xl flex items-center justify-center group-hover:bg-brand-gold group-hover:text-white transition-all">
+                                    <card.icon className="w-8 h-8" />
                                 </div>
                                 <h3 className="text-2xl font-black text-brand-navy group-hover:text-brand-gold transition-colors duration-500 tracking-tight">
                                     {card.title}

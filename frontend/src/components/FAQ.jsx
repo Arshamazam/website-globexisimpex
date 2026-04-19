@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Search } from "lucide-react";
 
 /**
  * Step 8.6: Advanced Searchable & Categorized FAQ Hub.
@@ -69,99 +70,77 @@ const FAQ = () => {
     };
 
     return (
-        <section id="faq" className="py-32 bg-white px-6 lg:px-20 overflow-hidden">
-            <div className="container mx-auto">
+        <div className="w-full max-w-5xl mx-auto py-10 px-4">
                 
                 {/* 1. SECTION HEADER */}
                 <div className="text-center mb-16 space-y-6">
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-6xl font-black text-brand-navy tracking-tight"
-                    >
+                    <h2 className="text-3xl md:text-5xl font-black text-brand-navy tracking-tight">
                         FAQ <span className="text-brand-gold italic">Hub</span>
-                    </motion.h2>
-                    <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "200px" }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.2, delay: 0.4 }}
-                        className="h-1.5 bg-brand-gold mx-auto rounded-full"
-                    />
-                    <p className="text-slate-500 text-xl font-light italic mt-6 max-w-2xl mx-auto">
-                        Everything you need to know about our products, orders, and global export process.
+                    </h2>
+                    <div className="h-1.5 w-24 bg-brand-gold mx-auto rounded-full" />
+                    <p className="text-slate-500 text-lg font-light italic mt-6 max-w-2xl mx-auto">
+                        Everything you need to know about our global export process.
                     </p>
                 </div>
 
                 {/* 2. SEARCH BAR & CATEGORIES */}
-                <div className="max-w-4xl mx-auto mb-20 space-y-12">
+                <div className="max-w-4xl mx-auto mb-16 space-y-8">
                     
                     {/* Search Input */}
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="relative group"
-                    >
+                    <div className="relative group">
                         <input 
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Search your question (e.g., Shipping, MOQ)..."
-                            className="w-full bg-slate-50 border-2 border-slate-100 rounded-[30px] px-10 py-6 text-lg focus:outline-none focus:border-brand-gold focus:ring-4 focus:ring-brand-gold/10 transition-all duration-300 placeholder:text-slate-300 font-light"
+                            placeholder="Search your question..."
+                            className="w-full bg-slate-50 border-2 border-slate-100 rounded-3xl px-10 py-5 text-base focus:outline-none focus:border-brand-gold transition-all duration-300"
                         />
-                        <div className="absolute right-8 top-1/2 -translate-y-1/2 text-2xl opacity-20 group-focus-within:opacity-100 group-focus-within:text-brand-gold transition-all">🔍</div>
-                    </motion.div>
+                    </div>
 
                     {/* Category Navigation */}
-                    <div className="flex flex-wrap justify-center gap-4">
+                    <div className="flex flex-wrap justify-center gap-3">
                         {FAQ_CATEGORIES.map((cat) => (
-                            <motion.button
+                            <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className={`px-8 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest transition-all duration-500 border-2 ${
+                                className={`px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border ${
                                     activeCategory === cat 
-                                    ? "bg-brand-navy border-brand-navy text-white shadow-xl" 
-                                    : "bg-white border-slate-100 text-slate-400 hover:border-brand-gold hover:text-brand-gold"
+                                    ? "bg-brand-navy border-brand-navy text-white" 
+                                    : "bg-white border-slate-100 text-slate-400 hover:border-brand-gold"
                                 }`}
                             >
                                 {cat}
-                            </motion.button>
+                            </button>
                         ))}
                     </div>
                 </div>
 
                 {/* 3. ACCORDION FAQ ITEMS */}
-                <div className="max-w-4xl mx-auto space-y-6 min-h-[400px]">
+                <div className="max-w-4xl mx-auto space-y-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
                     <AnimatePresence mode="popLayout">
                         {filteredFAQs.length > 0 ? (
                             filteredFAQs.map((faq, idx) => (
                                 <motion.div
                                     key={faq.id}
                                     layout
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: 20 }}
-                                    transition={{ duration: 0.5, delay: idx * 0.05 }}
-                                    className={`group rounded-[30px] border transition-all duration-500 ${
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    className={`rounded-2xl border transition-all duration-300 ${
                                         openId === faq.id 
-                                        ? "border-brand-gold bg-slate-50 shadow-2xl" 
-                                        : "border-slate-100 bg-white hover:border-slate-200"
+                                        ? "border-brand-gold bg-slate-50 shadow-lg" 
+                                        : "border-slate-100 bg-white"
                                     }`}
                                 >
                                     <button 
                                         onClick={() => toggleAccordion(faq.id)}
-                                        className="w-full flex items-center justify-between p-8 lg:p-10 text-left focus:outline-none"
+                                        className="w-full flex items-center justify-between p-6 md:p-8 text-left outline-none"
                                     >
                                         <div className="space-y-1">
-                                            <span className="text-[10px] font-black uppercase text-brand-gold tracking-[0.3em] opacity-60">
+                                            <span className="text-[9px] font-black uppercase text-brand-gold tracking-[0.3em] opacity-60">
                                                 {faq.category}
                                             </span>
-                                            <h4 className={`text-xl font-bold tracking-tight transition-all duration-300 ${
+                                            <h4 className={`text-base md:text-lg font-bold tracking-tight ${
                                                 openId === faq.id ? "text-brand-gold" : "text-brand-navy"
                                             }`}>
                                                 {faq.question}
@@ -169,11 +148,11 @@ const FAQ = () => {
                                         </div>
                                         <motion.div 
                                             animate={{ rotate: openId === faq.id ? 180 : 0 }}
-                                            className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
+                                            className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                                                 openId === faq.id ? "bg-brand-gold text-white" : "bg-slate-50 text-brand-navy"
                                             }`}
                                         >
-                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                                             </svg>
                                         </motion.div>
@@ -185,10 +164,9 @@ const FAQ = () => {
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: "auto", opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
-                                                transition={{ duration: 0.4, ease: "easeInOut" }}
                                                 className="overflow-hidden"
                                             >
-                                                <div className="p-8 lg:p-10 pt-0 text-slate-500 text-lg leading-relaxed font-light border-t border-brand-gold/10 mt-4 italic">
+                                                <div className="p-6 md:p-8 pt-0 text-slate-500 text-sm leading-relaxed font-light border-t border-brand-gold/10 mt-2 italic">
                                                     {faq.answer}
                                                 </div>
                                             </motion.div>
@@ -197,19 +175,13 @@ const FAQ = () => {
                                 </motion.div>
                             ))
                         ) : (
-                            <motion.div 
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="text-center py-20 text-slate-300 italic text-xl"
-                            >
-                                No matching questions found. Try searching for "Salt" or "Shipping".
-                            </motion.div>
+                            <div className="text-center py-10 text-slate-300 italic text-base">
+                                No matching questions found.
+                            </div>
                         )}
                     </AnimatePresence>
                 </div>
-
-            </div>
-        </section>
+        </div>
     );
 };
 

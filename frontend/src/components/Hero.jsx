@@ -61,32 +61,31 @@ const Hero = () => {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-full max-w-xl flex flex-col items-end pt-10 lg:pt-0"
+                        className="w-full lg:max-w-xl flex flex-col items-center lg:items-end pt-0"
                     >
-                        {/* Lightweight modern sans-serif */}
-                        <p className="text-[#6B6B6B] font-light text-sm md:text-lg tracking-[0.3em] mb-6 uppercase">
+                        {/* Modern sans-serif tagline */}
+                        <p className="text-[#6B6B6B] font-sans font-medium text-[9px] md:text-xs tracking-[0.4em] mb-6 uppercase">
                             Premier Global Supplier of
                         </p>
 
-                        {/* Elegant, high-contrast serif for 'Original' and 'Pakistan' */}
-                        <h1 className="flex flex-col items-end gap-1 md:gap-2 text-[#001D3D] leading-[0.95] w-full"
-                            style={{ fontFamily: '"Playfair Display", "Didot", "Georgia", serif' }}>
-                            <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] xl:text-[9.5rem] italic tracking-tight opacity-90 pr-2">
+                        {/* Elegant high-contrast serif for 'Original' and 'Pakistan' */}
+                        <h1 className="flex flex-col items-end gap-0 md:gap-0 text-brand-navy leading-[0.85] w-full font-serif">
+                            <span className="text-[2.2rem] sm:text-[3.5rem] md:text-[4.5rem] xl:text-[5.5rem] italic tracking-tight opacity-90 pr-2">
                                 Original
                             </span>
-                            <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] xl:text-[9.5rem] font-bold tracking-tighter">
+                            <span className="text-[2.2rem] sm:text-[3.5rem] md:text-[4.5rem] xl:text-[5.5rem] font-black tracking-tighter">
                                 Pakistan
                             </span>
                         </h1>
 
-                        {/* 3. PRIMARY TITLE SECTION */}
+                        {/* Subtitle section with refined border and font */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="relative z-10 max-w-4xl"
                         >
-                            <h2 className="block font-light font-sans text-xl md:text-3xl lg:text-[2.2rem] leading-[1.5] tracking-[0.2em] lg:tracking-[0.4em] uppercase mt-2 text-[#4A4A4A] border-t border-[#D4AF37]/50 pt-8 drop-shadow-sm transition-all duration-300">
-                                Himalayan Pink <span className="block lg:inline">Salt</span>
+                            <h2 className="block font-sans font-extralight text-sm sm:text-base md:text-xl lg:text-[1.4rem] leading-[1.5] tracking-[0.2em] sm:tracking-[0.3em] uppercase mt-4 text-[#4A4A4A] border-t border-brand-gold/30 pt-6 md:pt-8 transition-all duration-300">
+                                Himalayan Pink <span className="block lg:inline font-bold text-brand-gold">Salt</span>
                             </h2>
                         </motion.div>
                     </motion.div>

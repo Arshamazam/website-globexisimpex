@@ -40,23 +40,41 @@ const ProductExperience = () => {
             packaging: "25kg PP Bags, 1-ton Jumbo Bags, Retail Pouches",
             certification: "HACCP, ISO 9001:2015, HALAL Certified"
         },
-        "Authentic Black Salt": {
-            title: "Black Salt (Kala Namak) Specifications",
-            origin: "Kiln-Fired Himalayan Salt, Pakistan",
-            purity: "High Purity Infused with Organic Herbs",
-            minerals: "Rich in Trace Iron and Sulfurous Volcanic Compounds",
-            grades: "Fine Powder, Small Granules, Whole Rocks",
-            packaging: "25kg bags, Custom 500g pouches, Kraft Packaging",
-            certification: "Global Food Safety Standards Compliant"
+        "Salt Culinary": {
+            title: "Salt Culinary Specifications",
+            origin: "Khewra Salt Mines, Pakistan",
+            purity: "98% – 99.2% NaCl (Food Grade)",
+            minerals: "Balanced Trace Minerals — Iron, Magnesium, Potassium, Zinc",
+            grades: "Fine Table (0.3–0.5 mm), Medium (0.5–1 mm), Kosher Flakes, Gourmet Coarse",
+            packaging: "Retail 200 g / 500 g / 1 kg · 25 kg PP Bags · Custom Private Label",
+            certification: "HACCP · ISO 22000 · HALAL · Kosher"
         },
-        "Industrial Salt Solutions": {
-            title: "Industrial Grade Salt Specifications",
-            origin: "Multi-Source Mining, Pakistan Hub",
-            purity: "99.1% min Sodium Chloride (NaCl)",
-            minerals: "Minimized Calcium & Magnesium for Chemical Efficiency",
-            grades: "Bulk Rock Salt, Industrial Fine, Solar Salt",
-            packaging: "50kg Bags, 1.5-ton FIBC Jumbo Bags, Bulk Vessel",
-            certification: "ISO 22000, Specialized Technical Grade Lab Reports"
+        "Wellness": {
+            title: "Himalayan Salt Wellness Specifications",
+            origin: "Khewra Salt Mines, Pakistan",
+            purity: "Natural Unrefined Pink Halite",
+            minerals: "84+ Trace Minerals — Iron, Magnesium, Potassium, Calcium",
+            grades: "Bath Crystals · Salt Lamps · Salt Bricks · Inhalers · Body Scrubs",
+            packaging: "Retail Gift Boxes · Kraft Pouches · Custom Private Label",
+            certification: "Cosmetic Grade · Spa & Halotherapy Certified"
+        },
+        "Bath Salt": {
+            title: "Himalayan Bath Salt Specifications",
+            origin: "Khewra Salt Mines, Pakistan",
+            purity: "Unrefined Pink Himalayan Halite — Cosmetic Grade",
+            minerals: "Magnesium · Potassium · Calcium · Iron — 84+ trace minerals",
+            grades: "Coarse Bath Crystals · Fine Body Scrub Grade · Foot Soak Flakes",
+            packaging: "Retail Jars · Kraft Pouches · Bulk 25 kg Bags · Private Label",
+            certification: "Cosmetic Grade · Dermatologically Tested · HALAL"
+        },
+        "Animal Lick Salt": {
+            title: "Animal Lick Salt Specifications",
+            origin: "Khewra Salt Mines, Pakistan",
+            purity: "98% – 99% NaCl · Unrefined Natural Pink Halite",
+            minerals: "Iron · Magnesium · Potassium · Zinc — 84+ trace minerals",
+            grades: "Natural Blocks · Shaped Licks · Drilled with Rope · Custom Sizes",
+            packaging: "2–6 kg Retail Blocks · 25 kg Cartons · Bulk Pallet · Private Label",
+            certification: "Veterinary Grade · Export Quality Tested"
         }
     };
 
@@ -131,29 +149,60 @@ const ProductExperience = () => {
 
             {/* 3. CINEMATIC STORYTELLING PANELS */}
             <section className="py-32 space-y-32">
-                <StoryPanel 
+                <StoryPanel
                     title="The Salt of the Earth"
                     subtitle="Purity at Source"
                     desc="Our Himalayan Pink Salt is extracted using traditional methods that preserve its 84 trace minerals. No additives, no refining—just pure, ancient earth gifts."
                     img="/img/pink salt.png"
                     reverse={false}
-                    onViewSpecs={() => setSelectedSpecs(specsData["The Salt of the Earth"])}
+                    onViewSpecs={() => {
+                        window.location.hash = "#/himalayan-edible-salt";
+                        window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
                 />
-                <StoryPanel 
-                    title="Authentic Black Salt"
-                    subtitle="Organic Health & Flavor"
-                    desc="GlobexisImpex Black Salt (Kala Namak) is kiln-fired with natural herbs. It offers exceptional digestive health benefits, high trace iron content, and a unique umami flavor profile sought after by global premium food brands."
-                    img="/img/Black Salt.png"
+                <StoryPanel
+                    title="Salt Culinary"
+                    subtitle="Chef-Grade Everyday Essentials"
+                    desc="GlobexisImpex Culinary Salt is meticulously screened, washed, and finished for professional kitchens and premium retail lines. Clean crystal structure, balanced mineral profile, and consistent grain sizing deliver precise seasoning across every culinary application."
+                    img="/img/Salt Culinary (1).png"
                     reverse={true}
-                    onViewSpecs={() => setSelectedSpecs(specsData["Authentic Black Salt"])}
+                    onViewSpecs={() => {
+                        window.location.hash = "#/salt-culinary";
+                        window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
                 />
-                <StoryPanel 
-                    title="Industrial Salt Solutions"
-                    subtitle="High Purity & Logistics"
-                    desc="Providing high-purity Industrial Salt for global manufacturing and infrastructure projects. Our salt solutions bridge the gap between extraction and industrial excellence with seamless global logistics."
-                    img="/img/Industrial Salt.png"
+                <StoryPanel
+                    title="Wellness"
+                    subtitle="Spa · Halotherapy · Self-Care"
+                    desc="GlobexisImpex Wellness products transform pure Himalayan pink salt into therapeutic lifestyle essentials — bath crystals, glowing salt lamps, halotherapy bricks, inhalers, and body scrubs. Each piece is crafted to deliver the calming, mineral-rich benefits of the Khewra mines directly into homes, spas, and premium retail shelves."
+                    img="/img/salt wellness.png"
                     reverse={false}
-                    onViewSpecs={() => setSelectedSpecs(specsData["Industrial Salt Solutions"])}
+                    onViewSpecs={() => {
+                        window.location.hash = "#/wellness";
+                        window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                />
+                <StoryPanel
+                    title="Bath Salt"
+                    subtitle="Mineral Soak · Body Scrub · Spa Ritual"
+                    desc="GlobexisImpex Bath Salt is pure, unrefined Himalayan pink salt crafted for daily self-care. Rich in magnesium, potassium, and 84+ trace minerals, every crystal soothes aching muscles, detoxifies the skin, and transforms the bath into a spa-grade wellness ritual — supplied in retail jars, kraft pouches, and private-label formats."
+                    img="/img/Bath Salt.png"
+                    reverse={true}
+                    onViewSpecs={() => {
+                        window.location.hash = "#/bath-salt";
+                        window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                />
+                <StoryPanel
+                    title="Animal Lick Salt"
+                    subtitle="Livestock Nutrition · Farm Essentials"
+                    desc="GlobexisImpex Animal Lick Salt is unrefined Himalayan pink salt pressed and cut into natural lick blocks for livestock — cattle, horses, sheep, goats, and camels. Each block delivers essential sodium, iron, and 84+ trace minerals straight from the Khewra mines, supporting hydration, digestion, and coat health. Available in natural rough blocks, shaped licks, and rope-drilled formats for stables and retail."
+                    img="/img/Animal Lick Salt.png"
+                    reverse={false}
+                    onViewSpecs={() => {
+                        window.location.hash = "#/animal-lick-salt";
+                        window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
                 />
             </section>
 
@@ -173,8 +222,7 @@ const ProductExperience = () => {
                             className="bg-white rounded-[50px] max-w-2xl w-full p-10 lg:p-16 relative overflow-hidden"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Texture Overlay */}
-                            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')]" />
+                            <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(90deg,#000_1px,transparent_1px),linear-gradient(#000_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
                             
                             <button 
                                 onClick={() => setSelectedSpecs(null)}
@@ -185,21 +233,21 @@ const ProductExperience = () => {
                                 </svg>
                             </button>
 
-                            <div className="relative z-10 space-y-10">
+                            <div className="relative z-10 space-y-12">
                                 <div>
-                                    <div className="h-1.5 w-16 bg-brand-gold rounded-full mb-6" />
-                                    <h3 className="text-3xl md:text-4xl font-black text-brand-navy leading-tight">{selectedSpecs.title}</h3>
+                                    <div className="h-0.5 w-16 bg-brand-gold rounded-full mb-8" />
+                                    <h3 className="text-2xl md:text-4xl font-serif font-black text-brand-navy leading-none">{selectedSpecs.title}</h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                     <SpecRow label="Origin" value={selectedSpecs.origin} />
                                     <SpecRow label="Purity" value={selectedSpecs.purity} />
                                     <SpecRow label="Packaging" value={selectedSpecs.packaging} />
                                     <SpecRow label="Compliance" value={selectedSpecs.certification} />
                                 </div>
 
-                                <div className="pt-8 border-t border-slate-100">
-                                    <p className="text-slate-400 text-sm font-light italic leading-relaxed">
+                                <div className="pt-10 border-t border-slate-100">
+                                    <p className="text-slate-500 text-sm font-sans font-light italic leading-relaxed">
                                         Mineral Content: {selectedSpecs.minerals}
                                     </p>
                                 </div>
@@ -282,10 +330,16 @@ const StoryPanel = ({ title, subtitle, desc, img, reverse, onViewSpecs }) => (
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 className="flex-1 w-full"
             >
-                <div className="relative aspect-[4/3] bg-slate-50 rounded-[60px] p-12 shadow-inner group overflow-hidden">
+                <div className="relative aspect-[4/3] bg-slate-50 rounded-[40px] md:rounded-[60px] p-6 sm:p-8 md:p-12 shadow-inner group overflow-hidden">
                     <img 
                         src={img} 
                         alt={title} 
+                        style={{ 
+                            maskImage: 'linear-gradient(to right, transparent, black 30%, black 70%, transparent), linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+                            WebkitMaskImage: 'linear-gradient(to right, transparent, black 30%, black 70%, transparent), linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+                            maskComposite: 'intersect',
+                            WebkitMaskComposite: 'source-in'
+                        }}
                         className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-[2s]"
                     />
                     {/* Decorative Watermark */}
@@ -302,10 +356,10 @@ const StoryPanel = ({ title, subtitle, desc, img, reverse, onViewSpecs }) => (
                 className="flex-1 space-y-8"
             >
                 <div>
-                    <span className="text-brand-gold font-bold uppercase tracking-[0.4em] text-xs underline decoration-2 underline-offset-8 decoration-brand-gold/30">{subtitle}</span>
-                    <h2 className="text-4xl md:text-7xl font-black text-brand-navy mt-8 tracking-tighter leading-none">{title}</h2>
+                    <span className="text-brand-gold font-sans font-extrabold uppercase tracking-[0.4em] text-[10px] underline underline-offset-8 decoration-brand-gold/30">{subtitle}</span>
+                    <h2 className="text-3xl md:text-5xl font-serif font-black text-brand-navy mt-10 tracking-tight leading-none">{title}</h2>
                 </div>
-                <p className="text-2xl text-slate-500 font-light leading-relaxed italic border-l-4 border-brand-gold pl-8">
+                <p className="text-lg md:text-xl text-slate-500 font-sans font-light leading-relaxed border-l-4 border-brand-gold/50 pl-8">
                     {desc}
                 </p>
                 <motion.button

@@ -255,11 +255,11 @@ const BoldCard = ({ title, desc, icon, glowColor, delay, effectType }) => {
             </div>
 
             {/* TYPOGRAPHY */}
-            <div className="flex-1 space-y-3 w-full relative z-10 transition-transform duration-700">
-                <h3 className="text-lg lg:text-xl font-black text-[#001D3D] uppercase tracking-tighter leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,1)]">
+            <div className="flex-1 space-y-4 w-full relative z-10 transition-transform duration-700">
+                <h3 className="text-lg lg:text-xl font-serif font-black text-brand-navy uppercase tracking-tight leading-none bg-gradient-to-br from-brand-navy to-brand-navy/70 bg-clip-text">
                     {title}
                 </h3>
-                <p className="text-[#334155] text-justify font-medium text-[13px] lg:text-[14px] leading-relaxed drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                <p className="text-slate-600 font-sans font-medium text-[13px] lg:text-[14px] leading-relaxed">
                     {desc}
                 </p>
             </div>
@@ -316,11 +316,11 @@ const BenefitPointer = ({ side, title, desc, delay }) => {
                         <motion.h4 
                             animate={{ backgroundPosition: ["200% center", "-200% center"] }}
                             transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-                            className="font-black text-xl lg:text-2xl mb-2 bg-gradient-to-r from-[#001D3D] via-[#7DA1C4] to-[#001D3D] bg-[length:200%_auto] text-transparent bg-clip-text"
+                            className="font-black text-lg lg:text-xl mb-2 bg-gradient-to-r from-[#001D3D] via-[#7DA1C4] to-[#001D3D] bg-[length:200%_auto] text-transparent bg-clip-text"
                         >
                             {title}
                         </motion.h4>
-                        <p className="text-[#334155] font-semibold text-base lg:text-lg leading-relaxed opacity-90">{desc}</p>
+                        <p className="text-[#334155] font-semibold text-sm lg:text-base leading-relaxed opacity-90">{desc}</p>
                     </motion.div>
                     
                     {/* Pulsing Arrow Pointing Right */}
@@ -363,11 +363,11 @@ const BenefitPointer = ({ side, title, desc, delay }) => {
                         <motion.h4 
                             animate={{ backgroundPosition: ["200% center", "-200% center"] }}
                             transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-                            className="font-black text-xl lg:text-2xl mb-2 bg-gradient-to-r from-[#001D3D] via-[#7DA1C4] to-[#001D3D] bg-[length:200%_auto] text-transparent bg-clip-text"
+                            className="font-black text-lg lg:text-xl mb-2 bg-gradient-to-r from-[#001D3D] via-[#7DA1C4] to-[#001D3D] bg-[length:200%_auto] text-transparent bg-clip-text"
                         >
                             {title}
                         </motion.h4>
-                        <p className="text-[#334155] font-semibold text-base lg:text-lg leading-relaxed opacity-90">{desc}</p>
+                        <p className="text-[#334155] font-semibold text-sm lg:text-base leading-relaxed opacity-90">{desc}</p>
                     </motion.div>
                 </>
             )}

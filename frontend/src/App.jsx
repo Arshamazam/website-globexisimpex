@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import ReactGA from "react-ga4";
 
@@ -16,17 +16,52 @@ const AdvancedCertificationsProcess = lazy(() => import('./components/AdvancedCe
 const FAQ = lazy(() => import('./components/FAQ'));
 const Step5Contact = lazy(() => import('./components/Step5Contact'));
 const Footer = lazy(() => import('./components/Footer'));
+const HimalayanEdibleSaltPage = lazy(() => import('./components/HimalayanEdibleSaltPage'));
+const PinkSaltPage = lazy(() => import('./components/PinkSaltPage'));
+const WhiteSaltPage = lazy(() => import('./components/WhiteSaltPage'));
+const BlackSaltPage = lazy(() => import('./components/BlackSaltPage'));
+const SaltCulinaryPage = lazy(() => import('./components/SaltCulinaryPage'));
+const WellnessPage = lazy(() => import('./components/WellnessPage'));
+const BathSaltPage = lazy(() => import('./components/BathSaltPage'));
+const AnimalLickSaltPage = lazy(() => import('./components/AnimalLickSaltPage'));
+
+// Lightweight hash-based route identifiers
+const ROUTE_HIMALAYAN_SALT = "#/himalayan-edible-salt";
+const ROUTE_PINK_SALT = "#/pink-salt";
+const ROUTE_WHITE_SALT = "#/white-salt";
+const ROUTE_BLACK_SALT = "#/black-salt";
+const ROUTE_SALT_CULINARY = "#/salt-culinary";
+const ROUTE_WELLNESS = "#/wellness";
+const ROUTE_BATH_SALT = "#/bath-salt";
+const ROUTE_ANIMAL_LICK_SALT = "#/animal-lick-salt";
 
 // 3. ANALYTICS INITIALIZATION (GA4)
 const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // Replace with real ID
 ReactGA.initialize(GA_MEASUREMENT_ID);
 
 function App() {
-  
+  const [route, setRoute] = useState(typeof window !== "undefined" ? window.location.hash : "");
+
   useEffect(() => {
     // Track initial page view
     ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => setRoute(window.location.hash);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  const isSaltPage = route === ROUTE_HIMALAYAN_SALT;
+  const isPinkSaltPage = route === ROUTE_PINK_SALT;
+  const isWhiteSaltPage = route === ROUTE_WHITE_SALT;
+  const isBlackSaltPage = route === ROUTE_BLACK_SALT;
+  const isSaltCulinaryPage = route === ROUTE_SALT_CULINARY;
+  const isWellnessPage = route === ROUTE_WELLNESS;
+  const isBathSaltPage = route === ROUTE_BATH_SALT;
+  const isAnimalLickSaltPage = route === ROUTE_ANIMAL_LICK_SALT;
+  const isSubPage = isSaltPage || isPinkSaltPage || isWhiteSaltPage || isBlackSaltPage || isSaltCulinaryPage || isWellnessPage || isBathSaltPage || isAnimalLickSaltPage;
 
   // Structured Data (JSON-LD) for Organization & Business
   const schemaMarkup = {
@@ -76,20 +111,35 @@ function App() {
       </a>
 
       <Header />
-      
+
       <main id="main-content" role="main">
-        <Hero />
-        
-        {/* Performance: Load non-critical sections on demand */}
-        <Suspense fallback={<LoadingState />}>
-          <FeatureHighlights />
-          <ProductExperience />
-          <About />
-          <Capabilities />
-          <AdvancedCertificationsProcess />
-          <FAQ />
-          <Step5Contact />
-        </Suspense>
+        {isSubPage ? (
+          <Suspense fallback={<LoadingState />}>
+            {isSaltPage && <HimalayanEdibleSaltPage />}
+            {isPinkSaltPage && <PinkSaltPage />}
+            {isWhiteSaltPage && <WhiteSaltPage />}
+            {isBlackSaltPage && <BlackSaltPage />}
+            {isSaltCulinaryPage && <SaltCulinaryPage />}
+            {isWellnessPage && <WellnessPage />}
+            {isBathSaltPage && <BathSaltPage />}
+            {isAnimalLickSaltPage && <AnimalLickSaltPage />}
+          </Suspense>
+        ) : (
+          <>
+            <Hero />
+
+            {/* Performance: Load non-critical sections on demand */}
+            <Suspense fallback={<LoadingState />}>
+              <FeatureHighlights />
+              <ProductExperience />
+              <About />
+              <Capabilities />
+              <AdvancedCertificationsProcess />
+
+              <Step5Contact />
+            </Suspense>
+          </>
+        )}
       </main>
 
       <Suspense fallback={<div className="h-64 bg-brand-navy" />}>

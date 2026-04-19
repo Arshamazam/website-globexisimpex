@@ -6,10 +6,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'serif': ['Playfair Display', 'serif'],
+      },
       colors: {
-        'brand-navy': '#003366',
+        'brand-navy': '#001D3D', // Darker, more premium navy
         'brand-gold': '#C5A059',
-        'salt-pink': '#f7cbcc', // Keeping these for backup if needed
+        'salt-pink': '#f7cbcc',
         'salt-deep': '#e28b8b',
       },
       animation: {
